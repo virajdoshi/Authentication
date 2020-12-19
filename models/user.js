@@ -28,12 +28,15 @@ module.exports = {
                     userModel.exists({phone: data.user.phone, isVerified: true}, function(err, results){
                         if(results === true){
                             bcrypt.hash(data.user.password, saltRounds, (err, hash) => {    
-                                userModel.updateOne({phone: data.user.phone},{$set: {
+                                userModel.updateOne({phone: data.user.phone, email: null},{$set: {
                                     email: data.user.email,
                                     first_name: data.user.first_name,
                                     last_name: data.user.last_name,
                                     password: hash
                                 }}, function(err, results){
+                                    if(results.nModified === 0){
+                                        resolve("Message: You are already registered");
+                                    }
                                     if(err){
                                         resolve("Message: This email is already registered");
                                     }

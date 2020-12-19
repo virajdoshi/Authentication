@@ -9,4 +9,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/register', userController.register);
 
+router.post('/register-phone', userController.registerPhone);
+
+router.post('/verify-otp', userController.verifyOTP);
+
 module.exports = router;

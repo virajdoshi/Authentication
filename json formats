@@ -1,0 +1,26 @@
+For http://localhost:3001/users/register-phone          POST request
+{
+  "user": {
+    "phone" : "9999911111"
+  }
+}
+
+For http://localhost:3001/users/verify-otp              POST request
+{
+  "user": {
+    "phone" : "9999911111",
+    "otp" : Enter otp you will get in response of register-phone
+  }
+}
+
+For http://localhost:3001/users/register                POST request
+{
+  "user": {
+    "phone" : "9999911111",
+    "first_name" : "test",
+    "last_name" :  "user",
+    "email" : "testuser@gmail.com",
+    "password" : "test@123",
+    "ConfirmPassword" : "test@123"
+  }
+}
